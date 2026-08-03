@@ -11,10 +11,10 @@
 set -eou pipefail
 exec 1>&2
 
-outdir=$1 # /data/homezvol1/jennipn6/lab/jennifer/utmb/nhp/multiome/processed/sample
-sample_id=$2 # BC830_Day6_EBOV_Liver6
-library_metadata=$3 # /data/homezvol1/jennipn6/lab/jennifer/utmb/nhp/multiome/processed/work/02.libraries.csv
-samp2fq=$4 # /data/homezvol1/jennipn6/lab/jennifer/utmb/nhp/multiome/processed/work/02.sample2fastqs.csv
+outdir=$1 # /data/homezvol1/jennipn6/lab/jennifer/multiome/processed/sample
+sample_id=$2 # BC830_Day6_Liver6
+library_metadata=$3 # /data/homezvol1/jennipn6/lab/jennifer/multiome/processed/work/02.libraries.csv
+samp2fq=$4 # /data/homezvol1/jennipn6/lab/jennifer/multiome/processed/work/02.sample2fastqs.csv
 
 log=${outdir}/${sample_id}/logs/commands.log
 
@@ -41,10 +41,10 @@ library_metadata=`basename $library_metadata`
 samp2fq=`basename $samp2fq`
 
 # copy reference
-cmd="rclone copy 'dropbox:/14. Lab Members/jennifer/reference/personal/cellranger_reference/Mmul10_ZEBOV.tar.gz' local: --no-gzip-encoding --transfers 4 --multi-thread-streams 4"
+cmd="rclone copy 'dropbox:/14. Lab Members/jennifer/reference/personal/cellranger_reference/Mmul10.tar.gz' local: --no-gzip-encoding --transfers 4 --multi-thread-streams 4"
 run_cmd "$log"
 
-cmd="tar -xvzf Mmul10_ZEBOV.tar.gz"
+cmd="tar -xvzf Mmul10.tar.gz"
 run_cmd "$log"
 
 # copy fastq and md5sum
@@ -111,7 +111,7 @@ cat library.csv >& 2
 # generate count matrices
 cmd="cd $SCRDIR; cellranger-arc count \
 --id=${sample_id} \
---reference=${SCRDIR}/Mmul10_ZEBOV \
+--reference=${SCRDIR}/Mmul10 \
 --libraries=${SCRDIR}/library.csv \
 --create-bam=true \
 --localcores=25"
