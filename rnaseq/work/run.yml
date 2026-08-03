@@ -1,0 +1,38 @@
+# # ====== HUMAN ======
+# # references (can be gz or not)
+# gene_annotation_file: /data/homezvol1/jennipn6/personal/reference/public/gencode/homo_sapiens/GRCh38_v47/gencode.GRCh38_v47.annotation.gtf.gz
+# genome_fasta_file: /data/homezvol1/jennipn6/personal/reference/public/gencode/homo_sapiens/GRCh38_v47/GRCh38.primary_assembly.genome.fa.gz
+# te_annotation_file: /data/homezvol1/jennipn6/personal/reference/public/gencode/homo_sapiens/GRCh38_v47/GRCh38_Ensembl_rmsk_TE.chr.fixed.gtf.gz
+# ribosomal_intervals_file: /data/homezvol1/jennipn6/personal/reference/public/gencode/homo_sapiens/GRCh38_v47/ribosomal_intervals.bed
+# gene_annotation_bed: /data/homezvol1/jennipn6/personal/reference/public/gencode/homo_sapiens/GRCh38_v47/gencode.GRCh38_v47.annotation.bed12
+# # optional star index tarball
+# star_reference_tar: /data/homezvol1/jennipn6/personal/reference/personal/star_reference/hg38.gencode-v47.star_reference.tar.gz
+
+# ====== MOUSE ======
+# references (can be gz or not)
+gene_annotation_file: /dfs6b/pub/jennipn6/reference/public/gencode/musculus/GRCm39_M38/gencode.vM38.basic.annotation.gtf.gz
+genome_fasta_file: /dfs6b/pub/jennipn6/reference/public/gencode/musculus/GRCm39_M38/GRCm39.primary_assembly.genome.fa.gz
+te_annotation_file: /dfs6b/pub/jennipn6/reference/public/gencode/musculus/GRCm39_M38/GRCm39_Ensembl_rmsk_TE.fixed.gtf.gz
+ribosomal_intervals_file: /dfs6b/pub/jennipn6/reference/public/gencode/musculus/GRCm39_M38/ribosomal_intervals.bed
+gene_annotation_bed: /dfs6b/pub/jennipn6/reference/public/gencode/musculus/GRCm39_M38/gencode.vM38.basic.annotation.bed12
+# optional star index tarball
+star_reference_tar: "star_reference.tar.gz"
+
+# TEcount container
+tecounts_sif_file: "/dfs8/imarazzi_lab/share/software/TEtranscripts-2.2.3/tetranscripts.sif"
+
+# run options
+test_run: false
+project_id: yc067
+run_id: run1
+strandedness: none
+paired: paired
+reads: "input/*_{R,}{1,2}.{fq,fastq}.gz"
+#reads: "input/*_{1,2}_downsampled.{fq,fastq}.gz"
+
+# STAR "modes"
+star_gene_extra_args: "--outFilterMultimapNmax 20 --outFilterMismatchNmax 999 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000"
+star_te_extra_args: "--outFilterMultimapNmax 100 --winAnchorMultimapNmax 200 --outFilterMismatchNmax 999 --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000"
+
+# bam filtering arguments
+filter_bam_args: "-f2"
