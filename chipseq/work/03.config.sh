@@ -2,10 +2,10 @@ project_id=GSE167259
 run_id=run4
 
 # genome fasta
-genome_fasta="/dfs8/imarazzi_lab/share/project/pch-release-115/in/hg38.genome.fasta.gz"
+genome_fasta="/dfs8/imarazzi_lab/share/project/XX-release-115/in/hg38.genome.fasta.gz"
 
 # gene annotations
-gene_annotations=/dfs8/imarazzi_lab/share/project/pch-release-115/in/hg38.ensembl.transcriptome.annotation.gtf.gz
+gene_annotations=/dfs8/imarazzi_lab/share/project/XX-release-115/in/hg38.ensembl.transcriptome.annotation.gtf.gz
 
 # prefix to name reference
 genome_prefix="GRCh38_v115.Ensembl"
